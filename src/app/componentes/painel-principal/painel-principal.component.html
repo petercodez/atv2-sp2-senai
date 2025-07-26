@@ -1,0 +1,29 @@
+<h2>Lista de Produtos</h2>
+
+<table class="table table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>IMAGEM</th>
+            <th>PRODUTO</th>
+            <th>DESCRIÇÃO</th>
+            <th>PREÇO</th>
+            <th>AÇÕES</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let produto of produtos">
+            <td>{{produto.id}}</td>
+            <td>
+                <img [src]="'assets/img/' + produto.foto" alt="Imagem do Jogo 1" width="60" height="60">  
+            </td>
+            <td>{{produto.produto}}</td>
+            <td>{{produto.descricao}}</td>
+            <td>R$ {{produto.preco}}</td>
+            <td>
+                <button class="btn btn-primary btn-sm" (click)="editarProduto(produto.id)">Editar</button>
+                <button class="btn btn-danger btn-sm" (click)="excluirProduto(produto.id)">Excluir</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
